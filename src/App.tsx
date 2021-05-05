@@ -27,10 +27,14 @@ function App() {
     });
     setTodos(newTodos);
   };
+  const addTodo: AddTodo = (text:string) => {
+    const newTodo = { text, complete: false };
+    setTodos([...todos, newTodo]);
+  };
   return (
     <ul>
     <TodoList todos={todos} toggleTodo={toggleTodo}/>
-    <AddTodoForm />
+    <AddTodoForm addTodo={addTodo} />
     </ul>
   );
 }
